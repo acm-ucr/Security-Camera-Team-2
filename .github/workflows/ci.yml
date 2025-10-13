@@ -64,7 +64,7 @@ jobs:
       IDF_PROJECT_DIR: embedded
     defaults:
       run:
-        working-directory: security-camera-template   # Ensures we're in the right project folder
+        working-directory: ${{ github.workspace }}  # Ensures we're in the right project folder
     steps:
       - name: Checkout (with submodules)
         uses: actions/checkout@v4
