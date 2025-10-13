@@ -76,7 +76,7 @@ jobs:
           fi
 
       - name: Set up ESP-IDF
-        uses: espressif/setup-esp-idf@v1
+        uses: espressif/esp-idf-ci-action@v1
         with:
           version: ${{ env.IDF_VERSION }}
           tools-cache: true
