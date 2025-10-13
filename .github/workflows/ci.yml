@@ -67,8 +67,8 @@ jobs:
 
       - name: Resolve project directory
         run: |
-          if [ ! -f "${IDF_PROJECT_DIR}/CMakeLists.txt" ]; then
-            echo "CMakeLists.txt not found in '${IDF_PROJECT_DIR}'. Falling back to repo root."
+          if [ ! -f "${IDF_PROJECT_DIR}/embedded/CMakeLists.txt" ]; then
+            echo "CMakeLists.txt not found in '${IDF_PROJECT_DIR}'/embedded. Falling back to repo root."
             echo "IDF_PROJECT_DIR=." >> "$GITHUB_ENV"
           else
             echo "Using '${IDF_PROJECT_DIR}' as project directory."
