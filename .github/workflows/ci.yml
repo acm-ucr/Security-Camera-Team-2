@@ -75,25 +75,13 @@ jobs:
             echo "IDF_PROJECT_DIR=${IDF_PROJECT_DIR}" >> "$GITHUB_ENV"
           fi
 
-      - name: Set up ESP-IDF
+      - name: Build ESP-IDF project
         uses: espressif/esp-idf-ci-action@v1
         with:
-          version: ${{ env.IDF_VERSION }}
-          tools-cache: true
-
-      - name: Show versions
-        working-directory: ${{ env.IDF_PROJECT_DIR }}
-        run: |
-          idf.py --version
-          python --version
-
-      - name: Select target
-        working-directory: ${{ env.IDF_PROJECT_DIR }}
-        run: idf.py set-target "$IDF_TARGET"
-
-      - name: Build
-        working-directory: ${{ env.IDF_PROJECT_DIR }}
-        run: idf.py build
+          esp_idf_version: ${{ env.IDF_VERSION }}
+          target: ${{ env.IDF_TARGET }}
+          path: ${{ env.IDF_PROJECT_DIR }}
+          command: idf.py build
 
       - name: Upload build artifacts
         if: always()
