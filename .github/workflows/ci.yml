@@ -1,10 +1,9 @@
 name: CI (Python + ESP-IDF)
 
 on:
-  push:
+  pull_request:
     branches:
       - "**"
-  pull_request:
 
 concurrency:
   group: ci-${{ github.ref }}
